@@ -1,0 +1,122 @@
+/* font family */
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap");
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+  font-size: 10px;
+}
+#navbar {
+  box-shadow: 0px 0px 10px 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 20px 0px;
+}
+
+#navbar #heading {
+  color: #ec2222;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+/* container  */
+#container {
+  display: flex;
+  background-color: #e3dfde;
+  gap: 10px;
+}
+/* container left  */
+#container #left {
+  flex-basis: 70%;
+  margin-top: 10px;
+  margin-left: 20px;
+}
+/* container left live data  */
+#container #left #live-data {
+  display: flex;
+}
+/* container left liv data box */
+#container #live-data .box {
+  /* box-shadow: 0px 0px 6px 1px; */
+  padding: 30px 20px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  flex-basis: 24%;
+  display: flex;
+  justify-content: space-between;
+  margin-left: 10px;
+  background-color: #ffffff;
+}
+/* container left home-country  */
+
+/* container left home-country country states  */
+
+/* container left home-country affected areas  */
+
+/* container left home-updates  */
+
+/* container left home-updates trends  */
+
+/* container left home-updates news  */
+
+/* container right  */
+#container #right {
+  flex-basis: 30%;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+/* container right ratio  */
+#container #right #ratio {
+  padding: 20px;
+  background: #fff;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(20, 37, 64, 0.1);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 400px;
+  width: 350px;
+  margin-bottom: 10px;
+}
+#container #right #ratio #ratio-heading {
+  font-size: 2rem;
+  font-weight: bold;
+}
+#container #right #ratio .outer-circle {
+  display: flex;
+  height: 250px;
+  width: 250px;
+  border-radius: 50%;
+  border-color: #088761;
+  justify-content: center;
+  align-items: center;
+  border: 50px solid #7cccb4;
+}
+#container #right #ratio .circle {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+}
+#container #right #ratio .circle #nan {
+  font-size: 3rem;
+  font-weight: 500;
+}
+#container #right #ratio #para {
+  color: #808080;
+  font-weight: 200;
+}
+/* container right tweets  */
