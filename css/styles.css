@@ -289,3 +289,44 @@ html {
 #container #right #tweeter .twitter-heading #thead {
   font-size: 2rem;
 }
+#container #right #tweeter .twitter-container {
+  padding: 10px;
+  border-bottom: 1px solid #808080;
+  margin-bottom: 20px;
+}
+#container #right #tweeter .twitter-container .twitter-container-top {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+#container #right #tweeter .twitter-container .twitter-container-top .title {
+  text-align: left;
+}
+#container #right #tweeter .twitter-container .twitter-icons {
+  display: flex;
+  justify-content: space-between;
+}
+#container #right #tweeter .twitter-container .twitter-container-para {
+  text-align: left;
+  margin: 20px 0px 20px 0px;
+}
+#container #right #tweeter .twitter-container .twitter-icons .icons {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+#container #right #tweeter .twitter-container .twitter-icons .icons .likes {
+  color: #ec2222;
+  display: flex;
+  font-weight: bold;
+  align-items: center;
+  gap: 2px;
+}
+#container #right #tweeter .twitter-container .twitter-icons .icons .shares {
+  color: #4287f5;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
