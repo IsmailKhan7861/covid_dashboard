@@ -1,9 +1,0 @@
-create main div 
-left 
-   top 
-   middle 
-   bottom
-right 
-   top 
-   bottom 
-   

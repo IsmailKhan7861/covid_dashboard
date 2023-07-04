@@ -73,12 +73,84 @@ html {
   border-radius: 7px;
   height: 500px;
 }
+#container #left #home-country #country-states .search-bar {
+  display: flex;
+}
 /* container left home-country affected areas  */
 #container #left #home-country #affected-areas {
   flex-basis: 60%;
   background-color: #ffffff;
   height: 500px;
   border-radius: 7px;
+}
+
+#container #left #home-country #affected-areas .affected-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px;
+}
+#container
+  #left
+  #home-country
+  #affected-areas
+  .affected-heading
+  .type-affected {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+#container
+  #left
+  #home-country
+  #affected-areas
+  .affected-heading
+  .type-affected
+  #most-affected,
+#container
+  #left
+  #home-country
+  #affected-areas
+  .affected-heading
+  .type-affected
+  #less-affected {
+  height: 15px;
+  width: 15px;
+  border-radius: 2px;
+}
+#container
+  #left
+  #home-country
+  #affected-areas
+  .affected-heading
+  .type-affected
+  #most-affected {
+  background-color: #ec2222;
+}
+#container
+  #left
+  #home-country
+  #affected-areas
+  .affected-heading
+  .type-affected
+  #less-affected {
+  background-color: #e3a3b9;
+}
+#container
+  #left
+  #home-country
+  #affected-areas
+  .affected-heading
+  .type-affected
+  h3,
+#container
+  #left
+  #home-country
+  #affected-areas
+  .affected-heading
+  .type-affected
+  h3 {
+  color: #808080;
 }
 /* container left home-updates  */
 #container #left #home-updates {
@@ -96,6 +168,31 @@ html {
 }
 
 /* container left home-updates trends header  */
+#container #left #home-updates #trends #trends-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 4px 5px 10px;
+}
+#container #left #home-updates #trends #trends-header .buttons {
+  display: flex;
+  font-size: 1.3rem;
+  padding: 10px;
+}
+#container #left #home-updates #trends #confirmed,
+#container #left #home-updates #trends #recovered,
+#container #left #home-updates #trends #deceased {
+  padding: 5px;
+}
+
+#container #left #home-updates #trends #confirmed:hover,
+#container #left #home-updates #trends #recovered:hover,
+#container #left #home-updates #trends #deceased:hover,
+.active {
+  background-color: #808080;
+  color: #ffffff;
+  border-radius: 7px;
+}
 
 /* container left home-updates news  */
 #container #left #home-updates #news {

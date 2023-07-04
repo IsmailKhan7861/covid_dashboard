@@ -33,7 +33,7 @@
                 <img src="/images/arrow-red.png" alt="arrow-down" />
               </div>
 
-              <h1>3050</h1>
+              <h3 id="total-cases"></h3>
             </div>
             <img src="images/img1.png" alt="total-cases" />
           </div>
@@ -45,7 +45,7 @@
                 <img src="/images/arrow-green.png" alt="arrow-green" />
               </div>
 
-              <h1>2000</h1>
+              <h3 id="total-recovered"></h3>
             </div>
             <img src="images/img2.png" alt="total-cases" />
           </div>
@@ -57,7 +57,7 @@
                 <img src="images/arrow-red.png" alt="arrow-red" />
               </div>
 
-              <h1>1000</h1>
+              <h3 id="total-active"></h3>
             </div>
             <img src="images/img3.png" alt="total-cases" />
           </div>
@@ -68,7 +68,7 @@
                 <p>Total Deaths</p>
                 <img src="images/arrow-red.png" alt="arrow-red" />
               </div>
-              <h1>50</h1>
+              <h3 id="total-deaths"></h3>
             </div>
             <img src="images/img4.png" alt="total-cases" />
           </div>
@@ -76,14 +76,40 @@
 
         <div id="home-country">
           <div id="country-states">
-            <div></div>
+            <table class="table">
+              <thead></thead>
+              <tbody></tbody>
+            </table>
           </div>
 
-          <div id="affected-areas"></div>
+          <div id="affected-areas">
+            <div class="affected-heading">
+              <h1>COVID-19 Affected Areas</h1>
+
+              <div class="type-affected">
+                <div id="most-affected"></div>
+                <h3>Most Affected</h3>
+              </div>
+
+              <div class="type-affected">
+                <div id="less-affected"></div>
+                <h3>Less Affected</h3>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div id="home-updates">
-          <div id="trends"></div>
+          <div id="trends">
+            <div id="trends-header">
+              <h1 class="trend">Spread Trends</h1>
+              <div class="buttons">
+                <h3 id="confirmed" class="active">Confirmed</h3>
+                <h3 id="recovered">Recovered</h3>
+                <h3 id="deceased">Deceased</h3>
+              </div>
+            </div>
+          </div>
 
           <div id="news">
             <h1 id="news-header">NEWS</h1>
@@ -226,5 +252,8 @@
         </div>
       </div>
     </div>
+
+    <!-- Javascript -->
+    <script src="index.js"></script>
   </body>
 </html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>testing api</h1>
+
+    <script>
+      async function test() {
+        const url = "https://coronavirus.m.pipedream.net";
+
+        const data = await fetch(url);
+        const jsonData = await data.json();
+        console.log(jsonData.summaryStats.global);
+      }
+      test();
+    </script>
+  </body>
+</html>
+
+<!-- 
+
+      async function test() {
+        let url = "https://api.rootnet.in/covid19-in/stats/latest";
+        const data = await fetch(url);
+        const JsonData = await data.json();
+        console.log(JsonData.data.summary);
+      }
+
+      test();
+
+
+
+      
+//fetching api for country
+var country = txtCountry.ariaValueMax;
+async function test() {
+  var country = txtCountry.value;
+  let url = "https://api.api-ninjas.com/v1/covid19?country=" + country;
+  const options = {
+    headers: { "X-Api-Key": "KgUANFmbGGGWIoGkGxGvMA==Neg9KKscMQHZiytL" },
+  };
+  const data = await fetch(url, options);
+  const JsonData = await data.json();
+  result.textContent = JsonData[0].cases["2023-03-09"].total;
+  result.style.color = "red";
+  cont.textContent = "Total Cases in " + country.toUpperCase() + "  is:";
+}
+
+test();
+txtBtn.addEventListener("click", test); -->

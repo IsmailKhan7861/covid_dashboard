@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>testing api</h1>
+
+    <script>
+      async function totalData() {
+        // let url = "https://api.rootnet.in/covid19-in/stats/latest";
+        let url = "https://disease.sh/v3/covid-19/all";
+        const data = await fetch(url);
+        const jsonData = await data.json();
+        console.log(jsonData);
+      }
+
+      totalData();
+    </script>
+  </body>
+</html>

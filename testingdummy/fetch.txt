@@ -1,0 +1,68 @@
+-------------------Promise and await 
+
+    <script>
+      // API 1 FOR COUNTRIES DATA  USING PROMISE 
+      //   var country = "canada";
+      //   let url = "https://api.api-ninjas.com/v1/covid19?country=" + country;
+      //   const options = {
+      //     method: "GET",
+      //     headers: { "X-Api-Key": "KgUANFmbGGGWIoGkGxGvMA==Neg9KKscMQHZiytL" },
+      //   };
+
+      //   fetch(url, options)
+      //     .then((res) => res.json())
+      //     .then((data) =>
+      //       console.log(data[0].country, data[0].cases["2023-03-09"].total, data)
+      //     );
+
+
+
+      //     async function test() {   USING ASYNC AWAIT  
+      //     var country = "canada";
+      //     let url = "https://api.api-ninjas.com/v1/covid19?country=" + country;
+      //     const options = {
+      //       method: "GET",
+      //       headers: { "X-Api-Key": "KgUANFmbGGGWIoGkGxGvMA==Neg9KKscMQHZiytL" },
+      //     };
+      //     const data = await fetch(url, options);
+      //     const JsonData = await data.json();
+      //     console.log(JsonData);
+      //   }
+
+      //   test();
+    </script>
+----------------------------
+
+
+
+//   let table = document.querySelector("table");
+//   async function getData(url, table) {
+//     const tableHead = table.querySelector("thead");
+//     const tableBody = table.querySelector("tbody");
+//     const response = await fetch(url);
+//     const data = await response.json();
+//     console.log(data[0]);
+
+//     tableHead.innerHTML = "<tr></tr>";
+//     tableBody.innerHTML = "";
+
+//     //for adding headers
+//     for (const headerText in data[0]) {
+//       const HeaderElement = document.createElement("th");
+//       HeaderElement.textContent = headerText;
+//       tableHead.querySelector("tr").appendChild(HeaderElement);
+//     }
+
+//     //for content
+//     for (let i = 0; i < data.length; i++) {
+//       const obj = Object.values[data[i]];
+//       const rowElement = document.createElement("tr");
+//       for (const cellText of obj) {
+//         const cellElement = document.createElement("td");
+//         cellElement.textContent = cellText;
+//         rowElement.appendChild(cellElement);
+//       }
+//       tableBody.appendChild(rowElement);
+//     }
+//   }
+//   getData("https://api.spacexdata.com/latest/history", table);
