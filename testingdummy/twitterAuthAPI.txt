@@ -1,0 +1,3 @@
+how to get twiiter api 
+-create twitter account 
+-open developer mode from chrome  
