@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>World Covid Testing</title>
+
+    <style>
+      #container {
+        display: flex;
+        justify-content: space-between;
+        width: 80%;
+      }
+      #recovered {
+        color: green;
+      }
+      #deaths {
+        color: red;
+      }
+      #total-case {
+        color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>World Covid Data</h1>
+
+    <div id="container">
+      <div id="countries">
+        <h1>Countries</h1>
+      </div>
+      <div id="total-case">
+        <h1>Total Cases</h1>
+      </div>
+      <div id="active-case">
+        <h1>Active Cases</h1>
+      </div>
+      <div id="recovered">
+        <h1>Recovered</h1>
+      </div>
+      <div id="deaths">
+        <h1>Deaths</h1>
+      </div>
+    </div>
+
+    <script>
+      let countries = document.getElementById("countries");
+      let totalCase = document.getElementById("total-case");
+      let totalRecovered = document.getElementById("recovered");
+      let totalDeaths = document.getElementById("deaths");
+      let totalActive = document.getElementById("active-case");
+
+      let container2 = document.getElementById("container-2");
+
+      async function getData() {
+        const url = "https://corona.lmao.ninja/v2/countries?yesterday&sort";
+        let data = await fetch(url);
+        let jsonData = await data.json();
+        console.log(jsonData);
+
+        addElements(jsonData);
+      }
+
+      function addElements(jsonData) {
+        for (let i = 0; i <= jsonData.length; i++) {
+          let country = document.createElement("h2");
+          let textNode1 = document.createTextNode(jsonData[i].country);
+          let cases = document.createElement("h2");
+          let textNode2 = document.createTextNode(jsonData[i].cases);
+          let recoveredCase = document.createElement("h2");
+          let textNode3 = document.createTextNode(jsonData[i].recovered);
+          let deathCase = document.createElement("h2");
+          let textNode4 = document.createTextNode(jsonData[i].deaths);
+          let activeCase = document.createElement("h2");
+          let textNode5 = document.createTextNode(jsonData[i].active);
+
+          country.appendChild(textNode1);
+          cases.appendChild(textNode2);
+          countries.appendChild(country);
+          totalCase.appendChild(cases);
+          recoveredCase.appendChild(textNode3);
+          totalRecovered.appendChild(recoveredCase);
+          deathCase.appendChild(textNode4);
+          totalDeaths.appendChild(deathCase);
+          activeCase.appendChild(textNode5);
+          totalActive.appendChild(activeCase);
+        }
+      }
+      getData();
+    </script>
+  </body>
+</html>

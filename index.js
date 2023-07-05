@@ -32,3 +32,5 @@ totalData();
 //Twiiter
 //map for country wise
 //affected areas
+
+///TESTING CHART

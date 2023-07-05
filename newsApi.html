@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>News API</title>
+
+    <style>
+      .red {
+        box-shadow: 0px 0px 10px 1px;
+        margin-bottom: 10px;
+        background-color: aqua;
+        padding: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h>News API</h>
+    <div id="container1"></div>
+
+    <script>
+      let containerMain = document.getElementById("container1");
+
+      async function news() {
+        const url =
+          "https://newsapi.org/v2/everything?q=tesla&from=2023-06-05&sortBy=publishedAt&apiKey=102ff9d6d50f491494a6432b268f5b78";
+        let data = await fetch(url);
+        const jsonData = await data.json();
+        console.log(jsonData.articles[0]);
+        addElements(jsonData.articles);
+      }
+
+      function addElements(jsonData) {
+        for (let i = 0; i < jsonData.length; i++) {
+          let container = document.createElement("div");
+          container.classList.add("red");
+
+          let titles = document.createElement("h2");
+          let textNode = document.createTextNode(jsonData[i].title);
+          titles.appendChild(textNode);
+
+          let descrip = document.createElement("p");
+          let textNodes = document.createTextNode(jsonData[i].description);
+          descrip.appendChild(textNodes);
+
+          container.appendChild(titles);
+          container.appendChild(descrip);
+          containerMain.appendChild(container);
+        }
+      }
+      news();
+    </script>
+  </body>
+</html>
+
+102ff9d6d50f491494a6432b268f5b78
