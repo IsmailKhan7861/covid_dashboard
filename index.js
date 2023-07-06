@@ -82,6 +82,8 @@ getCountryData();
 //affected areas
 
 // CHART-------------------------------------------------------
+// FETCHING DATA
+
 ///TESTING CHART
 let confirmed = document.getElementById("confirmed");
 let recovered = document.getElementById("recovered");
@@ -128,13 +130,13 @@ deceased.addEventListener("click", function () {
 });
 
 //Function for chart creation
-function newChart(dataPoints, elem) {
+function newChart(dataPoints, i) {
   const xValues = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000];
-  var test = new Chart("myChart", {
+  new Chart("myChart", {
     type: "line",
     data: {
       labels: xValues,
-      datasets: [dataPoints[elem]],
+      datasets: [dataPoints[i]],
     },
     options: {
       legend: { display: false },
