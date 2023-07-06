@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -115,12 +116,12 @@
             <div id="trends-header">
               <h1 class="trend">Spread Trends</h1>
               <div class="buttons">
-                <h3 id="confirmed" class="active">Confirmed</h3>
+                <h3 id="confirmed" class = "active">Confirmed</h3>
                 <h3 id="recovered">Recovered</h3>
                 <h3 id="deceased">Deceased</h3>
               </div>
             </div>
-            
+            <canvas id="myChart" style="width:100%;max-width:420px"></canvas>
           </div>
 
           <div id="news">
@@ -749,11 +750,11 @@
 
     <div class = "footer">
       
+
     </div>
     <!-- Javascript -->
     <script src="index.js"></script>
 
-    
     </script>
   </body>
 </html>

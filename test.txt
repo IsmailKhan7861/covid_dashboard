@@ -1,0 +1,3 @@
+- Fetch data of Total Cases day wise first 5 
+- Fetch data of Recovered  day wise first 5 
+- Fetch Data of Deaths day wise first 5 

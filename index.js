@@ -35,7 +35,6 @@ async function getCountryData() {
   const url = "https://corona.lmao.ninja/v2/countries?yesterday&sort";
   let data = await fetch(url);
   let jsonData = await data.json();
-  console.log(jsonData);
 
   addElements(jsonData);
 }
@@ -83,3 +82,112 @@ getCountryData();
 //affected areas
 
 ///TESTING CHART
+let confirmed = document.getElementById("confirmed");
+let recovered = document.getElementById("recovered");
+let deceased = document.getElementById("deceased");
+
+//plotting
+let confirmedPlot = {
+  data: [860, 1140, 1060, 1060, 1070, 1110, 1330, 2210, 7830, 2478],
+  borderColor: "red",
+  fill: false,
+};
+let recoveredPlot = {
+  data: [1600, 1700, 1700, 1900, 2000, 2700, 4000, 5000, 6000, 7000],
+  borderColor: "green",
+  fill: false,
+};
+let deceasedPlot = {
+  data: [300, 700, 2000, 5000, 6000, 4000, 2000, 1000, 200, 100],
+  borderColor: "blue",
+  fill: false,
+};
+
+let dataPoints = confirmedPlot;
+
+confirmed.addEventListener("click", function () {
+  confirmed.classList.add("active");
+  recovered.classList.remove("active");
+  deceased.classList.remove("active");
+  // dataPoints = confirmedPlot;
+  const xValues = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000];
+  new Chart("myChart", {
+    type: "line",
+    data: {
+      labels: xValues,
+      datasets: [
+        {
+          data: [860, 1140, 1060, 1060, 1070, 1110, 1330, 2210, 7830, 2478],
+          borderColor: "red",
+          fill: false,
+        },
+      ],
+    },
+    options: {
+      legend: { display: false },
+    },
+  });
+});
+
+recovered.addEventListener("click", function () {
+  confirmed.classList.remove("active");
+  recovered.classList.add("active");
+  deceased.classList.remove("active");
+  // dataPoints = recoveredPlot;
+  const xValues = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000];
+  new Chart("myChart", {
+    type: "line",
+    data: {
+      labels: xValues,
+      datasets: [
+        {
+          data: [1600, 1700, 1700, 1900, 2000, 2700, 4000, 5000, 6000, 7000],
+          borderColor: "green",
+          fill: false,
+        },
+      ],
+    },
+    options: {
+      legend: { display: false },
+    },
+  });
+});
+
+deceased.addEventListener("click", function () {
+  confirmed.classList.remove("active");
+  recovered.classList.remove("active");
+  deceased.classList.add("active");
+  // dataPoints = deceasedPlot;
+
+  const xValues = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000];
+  new Chart("myChart", {
+    type: "line",
+    data: {
+      labels: xValues,
+      datasets: [
+        {
+          data: [300, 700, 2000, 5000, 6000, 4000, 2000, 1000, 200, 100],
+          borderColor: "blue",
+          fill: false,
+        },
+      ],
+    },
+    options: {
+      legend: { display: false },
+    },
+  });
+});
+
+//FETCH API 3 FOR CHART
+
+const xValues = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000];
+new Chart("myChart", {
+  type: "line",
+  data: {
+    labels: xValues,
+    datasets: [dataPoints],
+  },
+  options: {
+    legend: { display: false },
+  },
+});
