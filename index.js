@@ -82,8 +82,8 @@ getCountryData();
 //affected areas
 
 // CHART-------------------------------------------------------
-// FETCHING DATA
-
+// const xValues = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000];
+const xValues = [];
 ///TESTING CHART
 let confirmed = document.getElementById("confirmed");
 let recovered = document.getElementById("recovered");
@@ -92,17 +92,20 @@ let deceased = document.getElementById("deceased");
 //plotting
 let dataPoints = [
   {
-    data: [860, 1140, 1060, 1060, 1070, 1110, 1330, 2210, 7830, 2478],
+    // data: [860, 1140, 1060, 1060, 1070, 1110, 1330, 2210, 7830, 2478],
+    data: [],
     borderColor: "red",
     fill: false,
   },
   {
-    data: [1600, 1700, 1700, 1900, 2000, 2700, 4000, 5000, 6000, 7000],
+    // data: [1600, 1700, 1700, 1900, 2000, 2700, 4000, 5000, 6000, 7000],
+    data: [],
     borderColor: "green",
     fill: false,
   },
   {
-    data: [300, 700, 2000, 5000, 6000, 4000, 2000, 1000, 200, 100],
+    // data: [300, 700, 2000, 5000, 6000, 4000, 2000, 1000, 200, 100],
+    data: [],
     borderColor: "blue",
     fill: false,
   },
@@ -129,9 +132,31 @@ deceased.addEventListener("click", function () {
   newChart(dataPoints, 2);
 });
 
+// FETCHING DATA
+async function dataMap() {
+  const url = "https://disease.sh/v3/covid-19/historical/all?lastdays=10";
+  const data = await fetch(url);
+  const jsonData = await data.json();
+  for (const i in jsonData.cases) {
+    xValues.push(i);
+    dataPoints[0].data.push(jsonData.cases[i]);
+  }
+  addData(jsonData.cases, 0);
+  addData(jsonData.recovered, 1);
+  addData(jsonData.deaths, 2);
+}
+
+dataMap();
+
+//function for adding data in map
+function addData(data, indexElem) {
+  for (const i in data) {
+    dataPoints[indexElem].data.push(data[i]);
+  }
+}
+
 //Function for chart creation
 function newChart(dataPoints, i) {
-  const xValues = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000];
   new Chart("myChart", {
     type: "line",
     data: {
