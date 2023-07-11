@@ -359,7 +359,7 @@ td {
 #container #right #tweeter .twitter-container .twitter-container-top .title {
   text-align: left;
 }
-#container #right #tweeter .twitter-container .twitter-icons {
+#container #right #tweeter .twitter-container .icons {
   display: flex;
   justify-content: space-between;
 }
@@ -367,20 +367,20 @@ td {
   text-align: left;
   margin: 20px 0px 20px 0px;
 }
-#container #right #tweeter .twitter-container .twitter-icons .icons {
+#container #right #tweeter .twitter-container .icons {
   display: flex;
   gap: 20px;
   align-items: center;
 }
 
-#container #right #tweeter .twitter-container .twitter-icons .icons .likes {
+#container #right #tweeter .twitter-container .icons .likes {
   color: #ec2222;
   display: flex;
   font-weight: bold;
   align-items: center;
   gap: 2px;
 }
-#container #right #tweeter .twitter-container .twitter-icons .icons .shares {
+#container #right #tweeter .twitter-container .icons .shares {
   color: #4287f5;
   font-weight: bold;
   display: flex;

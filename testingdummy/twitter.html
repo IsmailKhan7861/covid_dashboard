@@ -8,16 +8,28 @@
   <body>
     <h1>Twitter API</h1>
     <script>
+      async function test() {
+        const url =
+          "https://twitter154.p.rapidapi.com/search/search?query=covid&section=top&min_retweets=1&min_likes=500&limit=10&start_date=2022-11-01&language=en";
 
+        const options = {
+          method: "GET",
+          headers: {
+            "X-RapidAPI-Key":
+              "f8da45c009msh74293eeec542a1fp1e067ajsn208f5584d4eb",
+            "X-RapidAPI-Host": "twitter154.p.rapidapi.com",
+          },
+        };
+
+        const data = await fetch(url, options);
+        const jsonData = await data.json();
+        console.log(jsonData.results[0].user.username);
+        console.log(jsonData.results[0].favorite_count);
+        console.log(jsonData.results[0].retweet_count);
+        console.log(jsonData.results[0].text);
       }
 
       test();
     </script>
   </body>
 </html>
-<!-- vcVKovxSBJRYVDttYG14runT8  api key 
-zKsnJ49BWuKlWjOdwGJIAsfDfdydSw2FQdgbapQl7qOV7UleBe  api secret key  -->
-
-<!-- 
-1676519516464095233-VUuYwnDc0eCnBW98ae6XVGwTPjT10L  access token 
-wALmmhqZ0qZnsi58PwVZLVxSGbTK8JBBNfKHpxKMdMuDE    acess token secret  -->

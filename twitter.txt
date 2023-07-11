@@ -1,0 +1,118 @@
+html 
+
+ <div id="tweeter">
+
+          <div class="twitter-heading">
+
+            <h2 id="thead">Latest Tweets</h2>
+
+            <i class="fa-brands fa-twitter fa-2xl" style="color: #1682c5"></i>
+          </div>
+
+          
+          <!-- CONTAINERS  OF TWEET-->
+          <div class="twitter-container">
+
+
+
+            <div class="twitter-container-top">
+              <img src="images/arrow-red.pn" alt="img" />
+              <div class="title">
+                <h3 id = "username">World Health Organisation (WHO)</h3>
+                <p>@WHO</p>
+              </div>
+            </div>
+
+            <p class="twitter-container-para">
+              The full briefing on #COVID19 by @DrTedros 👇
+              https://t.co/rVKnkY3Xe5
+            </p>
+
+            <div class="twitter-icons">
+              <div class="icons">
+                <div class="likes">
+                  <i
+                    class="fa-solid fa-thumbs-up fa-xl"
+                    style="color: #ec2222"
+                  ></i>
+                  <p id = "likes">105</p>
+                </div>
+                <div class="shares">
+                  <i
+                    class="fa-sharp fa-solid fa-share-nodes fa-xl"
+                    style="color: #4287f5"
+                  ></i>
+                  <p>23</p>
+                </div>
+              </div>
+              <!-- <p>Apr17</p> -->
+            </div>
+
+CSS:
+
+#container #right #tweeter {
+  padding: 20px;
+  background-color: #ffffff;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(20, 37, 64, 0.1);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 577px;
+  width: 350px;
+  margin-bottom: 10px;
+  scrollbar-gutter: auto;
+  overflow: auto;
+}
+#container #right #tweeter .twitter-heading {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+}
+#container #right #tweeter .twitter-heading #thead {
+  font-size: 2rem;
+}
+#container #right #tweeter .twitter-container {
+  padding: 10px;
+  border-bottom: 1px solid #808080;
+  margin-bottom: 20px;
+}
+#container #right #tweeter .twitter-container .twitter-container-top {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+#container #right #tweeter .twitter-container .twitter-container-top .title {
+  text-align: left;
+}
+#container #right #tweeter .twitter-container .twitter-icons {
+  display: flex;
+  justify-content: space-between;
+}
+#container #right #tweeter .twitter-container .twitter-container-para {
+  text-align: left;
+  margin: 20px 0px 20px 0px;
+}
+#container #right #tweeter .twitter-container .twitter-icons .icons {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+#container #right #tweeter .twitter-container .twitter-icons .icons .likes {
+  color: #ec2222;
+  display: flex;
+  font-weight: bold;
+  align-items: center;
+  gap: 2px;
+}
+#container #right #tweeter .twitter-container .twitter-icons .icons .shares {
+  color: #4287f5;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}

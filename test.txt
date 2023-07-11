@@ -1,3 +1,30 @@
 - Fetch data of Total Cases day wise first 5 
 - Fetch data of Recovered  day wise first 5 
 - Fetch Data of Deaths day wise first 5 
+
+
+
+id - tweter 
+div twitter-container 
+    div title 
+       id username  
+create p tag add classtwitter-container-para 
+
+div icons 
+    div likes 
+         <i
+                    class="fa-solid fa-thumbs-up fa-xl"
+                    style="color: #ec2222"
+                  ></i> 
+        
+        p create add class likes
+   
+    div shares  
+        <i
+                    class="fa-sharp fa-solid fa-share-nodes fa-xl"
+                    style="color: #4287f5"
+                  ></i>
+        
+        create para and add the shares 
+
+        

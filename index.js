@@ -170,3 +170,98 @@ function newChart(dataPoints, i) {
 }
 
 newChart(dataPoints, 0);
+
+//CREATE DUMMY NODE ITEMS AND
+let tweeterContainer = document.getElementById("tweeter");
+let twitterContainer = document.createElement("div");
+twitterContainer.classList.add("twitter-container");
+
+let titleData = document.createElement("div");
+titleData.classList.add("title");
+
+let username = document.createElement("h3");
+let userText = document.createTextNode("World Health Organistion");
+
+let decsription = document.createElement("p");
+decsription.classList.add("twitter-container-para");
+let decsriptionText = document.createTextNode("hello");
+
+let icon1 = document.createElement("div");
+icon1.classList.add("icons");
+
+let like1 = document.createElement("div");
+like1.classList.add("likes");
+
+let likeCount = document.createElement("p");
+likeCount.classList.add("likes");
+let likeCountText = document.createTextNode("10");
+
+let share1 = document.createElement("div");
+share1.classList.add("shares");
+
+let shareCount = document.createElement("p");
+let shareCountText = document.createTextNode("10");
+
+async function tweetData() {
+  const url =
+    "https://twitter154.p.rapidapi.com/search/search?query=covid&section=top&min_retweets=1&min_likes=500&limit=20&start_date=2022-11-01&language=en";
+
+  const options = {
+    method: "GET",
+    headers: {
+      "X-RapidAPI-Key": "f8da45c009msh74293eeec542a1fp1e067ajsn208f5584d4eb",
+      "X-RapidAPI-Host": "twitter154.p.rapidapi.com",
+    },
+  };
+
+  const data = await fetch(url, options);
+  const jsonData = await data.json();
+  // console.log(jsonData.results[0].user.username);
+  // console.log(jsonData.results[0].favorite_count);
+  // console.log(jsonData.results[0].retweet_count);
+  // console.log(jsonData.results[0].text);
+
+  for (let i = 0; i < jsonData.results.length; i++) {
+    let twitterContainerClone = twitterContainer.cloneNode(true);
+
+    let titleDataClone = titleData.cloneNode(true);
+    //username
+    let usernameClone = username.cloneNode(true);
+    let userTextClone = userText.cloneNode(true);
+    userTextClone.data = jsonData.results[i].user.username;
+    usernameClone.appendChild(userTextClone);
+    titleDataClone.appendChild(usernameClone);
+    twitterContainerClone.appendChild(titleDataClone);
+
+    let decsriptionClone = decsription.cloneNode(true);
+    let decsriptionTextClone = decsriptionText.cloneNode(true);
+    //text
+    decsriptionTextClone.data = jsonData.results[i].text;
+    decsriptionClone.appendChild(decsriptionTextClone);
+    twitterContainerClone.appendChild(decsriptionClone);
+
+    let iconClone = icon1.cloneNode(true);
+    let likeClone = like1.cloneNode(true);
+    let shareClone = share1.cloneNode(true);
+
+    let likeCountClone = likeCount.cloneNode(true);
+    let shareCountClone = shareCount.cloneNode(true);
+
+    let likeCountTextClone = likeCountText.cloneNode(true);
+    let shareCountTextClone = shareCountText.cloneNode(true);
+
+    likeCountTextClone.data = jsonData.results[i].favorite_count;
+    shareCountTextClone.data = jsonData.results[i].retweet_count;
+
+    likeCountClone.appendChild(likeCountTextClone);
+    shareCountClone.appendChild(shareCountTextClone);
+    likeClone.appendChild(likeCountClone);
+    shareClone.appendChild(shareCountClone);
+
+    iconClone.appendChild(likeClone);
+    iconClone.appendChild(shareClone);
+    twitterContainerClone.appendChild(iconClone);
+    tweeterContainer.appendChild(twitterContainerClone);
+  }
+}
+tweetData();
