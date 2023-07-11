@@ -134,7 +134,7 @@ deceased.addEventListener("click", function () {
 
 // FETCHING DATA
 async function dataMap() {
-  const url = "https://disease.sh/v3/covid-19/historical/all?lastdays=10";
+  const url = "https://disease.sh/v3/covid-19/historical/all?lastdays=30";
   const data = await fetch(url);
   const jsonData = await data.json();
   for (const i in jsonData.cases) {
@@ -179,7 +179,8 @@ twitterContainer.classList.add("twitter-container");
 let titleData = document.createElement("div");
 titleData.classList.add("title");
 
-let username = document.createElement("h3");
+let username = document.createElement("h2");
+username.classList.add("header");
 let userText = document.createTextNode("World Health Organistion");
 
 let decsription = document.createElement("p");
@@ -191,6 +192,9 @@ icon1.classList.add("icons");
 
 let like1 = document.createElement("div");
 like1.classList.add("likes");
+
+// let likeImage = document.createElement("i");
+// likeImage.classList.add("fa-solid fa-thumbs-up fa-xl");
 
 let likeCount = document.createElement("p");
 likeCount.classList.add("likes");
@@ -216,10 +220,6 @@ async function tweetData() {
 
   const data = await fetch(url, options);
   const jsonData = await data.json();
-  // console.log(jsonData.results[0].user.username);
-  // console.log(jsonData.results[0].favorite_count);
-  // console.log(jsonData.results[0].retweet_count);
-  // console.log(jsonData.results[0].text);
 
   for (let i = 0; i < jsonData.results.length; i++) {
     let twitterContainerClone = twitterContainer.cloneNode(true);
@@ -265,3 +265,55 @@ async function tweetData() {
   }
 }
 tweetData();
+
+//news API
+let mainContainer = document.getElementById("main");
+
+let newsContainer = document.createElement("div");
+newsContainer.classList.add("newsContainer");
+newsContainer.classList.add("slide");
+let newsHeader = document.createElement("h3");
+let headerContent = document.createTextNode("hello");
+newsHeader.classList.add("headlines");
+let newsContent = document.createElement("p");
+let contentText = document.createTextNode("hello");
+newsContent.classList.add("text");
+let counter = 0;
+//function
+async function newsData() {
+  const url =
+    "https://covid-19-news.p.rapidapi.com/v1/covid?q=covid&lang=en&media=True";
+  const options = {
+    method: "GET",
+    headers: {
+      "X-RapidAPI-Key": "f8da45c009msh74293eeec542a1fp1e067ajsn208f5584d4eb",
+      "X-RapidAPI-Host": "covid-19-news.p.rapidapi.com",
+    },
+  };
+
+  const data = await fetch(url, options);
+  const jsonData = await data.json();
+  console.log(jsonData.articles[0].summary);
+
+  for (let i = 0; i <= 10; i++) {
+    var newsContainerClone = newsContainer.cloneNode(true);
+
+    let newsHeaderClone = newsHeader.cloneNode(true);
+    let newsContentClone = newsContent.cloneNode(true);
+
+    let headerContentClone = headerContent.cloneNode(true);
+    let contentTextClone = contentText.cloneNode(true);
+
+    headerContentClone.data = jsonData.articles[i].title;
+    contentTextClone.data = jsonData.articles[i].summary;
+
+    newsHeaderClone.appendChild(headerContentClone);
+    newsContentClone.appendChild(contentTextClone);
+
+    newsContainerClone.appendChild(newsHeaderClone);
+    newsContainerClone.appendChild(newsContentClone);
+
+    mainContainer.appendChild(newsContainerClone);
+  }
+}
+newsData();
