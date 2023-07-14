@@ -7,3 +7,19 @@
 each container add class Slide 
 prev button 
 nextbutton 
+
+
+Main Container  - already exist 
+Buttons 
+slide Container  
+ContainrClone = slide class add class   
+
+get slideContainer 
+get each slide(throigh function)
+gt prev Button 
+get next Button 
+
+
+add inside ForLoop 
+nextbutton.add(slideContainer) 
+

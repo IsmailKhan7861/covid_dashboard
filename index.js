@@ -56,10 +56,21 @@ function addElements(jsonData) {
     let textNode5 = document.createTextNode(jsonData[i].deaths);
 
     td1.appendChild(textNode1);
+    td1.classList.add("table-row");
+    td1.classList.add("td-left");
     td2.appendChild(textNode2);
+    td2.classList.add("table-row");
+    td2.classList.add("td-right");
     td3.appendChild(textNode3);
+    td3.classList.add("table-row");
+    td3.classList.add("td-right");
     td4.appendChild(textNode4);
+    td4.classList.add("table-row");
+    td4.classList.add("td-right");
     td5.appendChild(textNode5);
+    td5.classList.add("table-row");
+    td5.classList.add("td-right");
+    td5.classList.add("td-right1");
 
     trow.appendChild(td1);
     trow.appendChild(td2);
@@ -68,11 +79,7 @@ function addElements(jsonData) {
     trow.appendChild(td5);
 
     table.appendChild(trow);
-    td1.style.fontWeight = "bold";
-    td2.classList.add("total-cases");
-    td3.classList.add("total-active");
-    td4.classList.add("total-recovered");
-    td5.classList.add("total-deaths");
+    trow.classList.add("table-row");
   }
 }
 
@@ -220,7 +227,7 @@ async function tweetData() {
 
   const data = await fetch(url, options);
   const jsonData = await data.json();
-
+  console.log(jsonData.res);
   for (let i = 0; i < jsonData.results.length; i++) {
     let twitterContainerClone = twitterContainer.cloneNode(true);
 
@@ -268,10 +275,13 @@ tweetData();
 
 //news API
 let mainContainer = document.getElementById("main");
+let slideContainer = document.getElementById("slides-container");
 
 let newsContainer = document.createElement("div");
 newsContainer.classList.add("newsContainer");
-newsContainer.classList.add("slide");
+const prevButton = document.getElementById("slide-arrow-prev");
+const nextButton = document.getElementById("slide-arrow-next");
+
 let newsHeader = document.createElement("h3");
 let headerContent = document.createTextNode("hello");
 newsHeader.classList.add("headlines");
@@ -293,13 +303,15 @@ async function newsData() {
 
   const data = await fetch(url, options);
   const jsonData = await data.json();
-  console.log(jsonData.articles[0].summary);
+  console.log(jsonData.articles[0].media);
 
   for (let i = 0; i <= 10; i++) {
     var newsContainerClone = newsContainer.cloneNode(true);
 
     let newsHeaderClone = newsHeader.cloneNode(true);
     let newsContentClone = newsContent.cloneNode(true);
+
+    newsContainerClone.classList.add("slides");
 
     let headerContentClone = headerContent.cloneNode(true);
     let contentTextClone = contentText.cloneNode(true);
@@ -313,7 +325,17 @@ async function newsData() {
     newsContainerClone.appendChild(newsHeaderClone);
     newsContainerClone.appendChild(newsContentClone);
 
-    mainContainer.appendChild(newsContainerClone);
+    slideContainer.appendChild(newsContainerClone);
+
+    nextButton.addEventListener("click", () => {
+      const slideWidth = newsContainerClone.clientWidth;
+      slideContainer.scrollLeft += slideWidth;
+    });
+
+    prevButton.addEventListener("click", () => {
+      const slideWidth = newsContainerClone.clientWidth;
+      slideContainer.scrollLeft -= slideWidth;
+    });
   }
 }
 newsData();
