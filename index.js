@@ -288,6 +288,12 @@ newsHeader.classList.add("headlines");
 let newsContent = document.createElement("p");
 let contentText = document.createTextNode("hello");
 newsContent.classList.add("text");
+let image = document.createElement("img");
+image.classList.add("image");
+
+let newsLink = document.createElement("a");
+newsLink.setAttribute("target", "_blank");
+newsLink.classList.add("news-link");
 let counter = 0;
 //function
 async function newsData() {
@@ -315,16 +321,23 @@ async function newsData() {
 
     let headerContentClone = headerContent.cloneNode(true);
     let contentTextClone = contentText.cloneNode(true);
+    let imageClone = image.cloneNode(true);
+    imageClone.src = jsonData.articles[i].media;
 
+    let newsLinkClone = newsLink.cloneNode(true);
+    newsLinkClone.href = jsonData.articles[i].link;
     headerContentClone.data = jsonData.articles[i].title;
     contentTextClone.data = jsonData.articles[i].summary;
-
+    console.log(jsonData.articles[i].link);
+    let linkContent = document.createTextNode(jsonData.articles[i].link);
+    newsLinkClone.appendChild(linkContent);
     newsHeaderClone.appendChild(headerContentClone);
     newsContentClone.appendChild(contentTextClone);
 
     newsContainerClone.appendChild(newsHeaderClone);
-    newsContainerClone.appendChild(newsContentClone);
-
+    // newsContainerClone.appendChild(newsContentClone);
+    newsContainerClone.appendChild(imageClone);
+    newsContainerClone.appendChild(newsLinkClone);
     slideContainer.appendChild(newsContainerClone);
 
     nextButton.addEventListener("click", () => {

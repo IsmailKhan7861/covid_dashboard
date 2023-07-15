@@ -330,17 +330,14 @@ td {
   height: 300px;
 
   width: 400px;
-  justify-content: space-between;
+
   align-items: center;
   border-radius: 4px;
-  margin: 1rem;
   position: relative;
   overflow: hidden;
   margin: auto;
 }
 #slides-container {
-  height: calc(100vh - 2rem);
-
   display: flex;
   overflow-x: scroll;
   scroll-behavior: smooth;
@@ -420,7 +417,17 @@ td {
   color: #808080;
   font-weight: 200;
 }
-
+.image {
+  height: 200px;
+  width: 350px;
+  border: 2px solid #808080;
+  display: flex;
+  justify-content: center;
+}
+.news-link {
+  font-size: 1.5rem;
+  width: 60%;
+}
 /* container right tweets  */
 #container #right #tweeter {
   padding: 20px;
